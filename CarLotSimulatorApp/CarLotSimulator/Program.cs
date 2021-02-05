@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
     class Program
     {
+        
+
         static void Main(string[] args)
         {
             //TODO
@@ -13,22 +16,42 @@ namespace CarLotSimulator
             //Car shall have the following methods: MakeEngineNoise(), MakeHonkNoise()
             //The methods should take one string parameter: the respective noise property
 
-            CarLot carvana = new CarLot();
+            
 
             var car1 = new Car(2014, "Dodge", "Challenger", "Hummm", "Beep", true);
+
+            //carvana.Cars.Add(car1);
+
             var car2 = new Car(2003, "Jeep", "Wrangler", "Vroom", "Beep Beep", true);
-            //var car3 = new Car();
-            //{
-            //        Year = 2018,
-            //        Make = "Honda",
-            //        Model ="Accord",
-            //        EngineNoise = "Vroom",
-            //        HonkNoise = "Beep",
-            //        IsDrivable = true,
-            //};
-            carvana.Cars.Add(car1);
-            carvana.Cars.Add(car2);
+
+            //carvana.Cars.Add(car2);
+
+            var car3 = new Car()
+                      
+            {
+                Year = 2018,
+                Make = "Honda",
+                Model = "Accord 2.0t",
+                EngineNoise = "Vroom",
+                HonkNoise = "Beep",
+                IsDrivable = true,
+
+             
+
+
+            };
+
+            CarLot carvana = new CarLot();
+
+            carvana.Cars = new List<Car>() { car1, car2, car3 };
+
+           
+
+            //carvana.Cars.Add(car1);
+            //carvana.Cars.Add(car2);
             //carvana.Cars.Add(car3);
+
+
 
 
             //Now that the Car class is created we can instanciate 3 new cars
@@ -45,6 +68,13 @@ namespace CarLotSimulator
             //It should have at least one property: a List of cars
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+
+            Console.WriteLine($"Number of cars created: {carvana.Cars.Count}");
+
+            foreach (var car in carvana.Cars)
+            {
+                Console.WriteLine($"Year: {car.Year} Make: {car.Make} Model: {car.Model}");
+            }
 
 
             foreach (var car in carvana.Cars)
